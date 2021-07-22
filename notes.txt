@@ -2,3 +2,11 @@ hello there!
 
 class component is the old way of making react component s
 now you can do functional components
+
+react router 
+- standard in react applications for handling routes
+- need for websites with many different pages 
+
+style components good for styling react components
+
+proptypes is great tool in react for checking props in runtime?
