@@ -16,3 +16,14 @@ styled components
 - same classnames for different components
 - you can use syntax like sass
 - you can props inside the styled components 
+
+
+useEffect is hook you can use for sideEffects like grabbing a api 
+
+useReducer is very similar to Redux can be used instead of useState hook
+
+useCallback hooks used to memorize stuff if you do not want to create functions 
+on re render 
+
+useRef hook 
+
