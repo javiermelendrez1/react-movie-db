@@ -1,1 +1,4 @@
 hello there!
+
+class component is the old way of making react component s
+now you can do functional components
