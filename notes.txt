@@ -10,3 +10,9 @@ react router
 style components good for styling react components
 
 proptypes is great tool in react for checking props in runtime?
+
+styled components 
+- you get scoped css 
+- same classnames for different components
+- you can use syntax like sass
+- you can props inside the styled components 
