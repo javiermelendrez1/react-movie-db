@@ -10,6 +10,7 @@ import {POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL} from '../config';
 import HeroImage from './HeroImage';
 import Grid from './Grid'
 import Thumb from './Thumb'
+import Spinner from './Spinner';
 //hook
 import { useHomeFetch } from '../hooks/useHomeFetch';
 //image 
@@ -39,6 +40,7 @@ const Home = () => {
             ))
         }
     </Grid>
+    <Spinner />
     </>
     )
 };
