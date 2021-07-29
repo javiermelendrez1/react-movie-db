@@ -44,10 +44,12 @@ const initialState = {
     //can do it by specifying , []
     //when you specify it as an empty array it will onyl run once 
 
-    //inital render
+    //inital render and search
     useEffect( () => {
-        fetchMovies(1);
-    }, [])
-    return {state, loading, error, setSearchTerm};
+        //wipeout old state before you make a new search
+        setState(initialState);
+        fetchMovies(1, searchTerm);
+    }, [searchTerm])
+    return {state, loading, error, setSearchTerm, searchTerm};
 
 };
