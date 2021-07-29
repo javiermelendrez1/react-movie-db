@@ -13,7 +13,7 @@ animation: animateThumb 0.5s;
     opacity: 0.8;
 }
 
-@keyFrames animateThumb {
+@keyframes animateThumb {
     from {
         opacity: 0;
     }

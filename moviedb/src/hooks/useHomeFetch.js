@@ -8,9 +8,10 @@ const initialState = {
     total_results: 0
 }
 //this is a custom hook
- export const useHomeFetch = () => {
-        //when you call useState you get a array back
+export const useHomeFetch = () => {
+    //when you call useState you get a array back
     //first is state second is setter
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
     const [state, setState] = useState(initialState);
     const [loading, setLoading] = useState(false); //initial state is false
     //before useState hook you need to create a class that was stated in React
@@ -28,12 +29,12 @@ const initialState = {
             setState(prev => (
                 {
                     ...movies,
-                    results: 
+                    results:
                         page > 1 ? [...prev.results, ...movies.results] : [...movies.results]
                 }
             ));
             setLoading(false);
-        } catch(error){
+        } catch (error) {
             //set the state
             setError(true);
         }
@@ -45,11 +46,24 @@ const initialState = {
     //when you specify it as an empty array it will onyl run once 
 
     //inital render and search
-    useEffect( () => {
+    useEffect(() => {
         //wipeout old state before you make a new search
         setState(initialState);
         fetchMovies(1, searchTerm);
     }, [searchTerm])
-    return {state, loading, error, setSearchTerm, searchTerm};
+
+
+    //load more 
+
+    useEffect(() => {
+        if (!isLoadingMore) return;
+        //should only do something when we load more movies
+        fetchMovies(state.page + 1, searchTerm);
+        setIsLoadingMore(false); //return this back to false
+        //we put is loading more in the array because this useEffect is dependent on wether use clicks that 
+
+    }, [isLoadingMore, searchTerm, state.page])
+
+    return { state, loading, error, setSearchTerm, searchTerm, setIsLoadingMore };
 
 };

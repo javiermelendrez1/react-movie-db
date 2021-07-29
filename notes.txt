@@ -30,3 +30,5 @@ useRef hook
 going to make the search bar into a controlled component
 a controlled component is a component that react controls
 input value is based off state
+
+when mapping you want to use key movie.id
