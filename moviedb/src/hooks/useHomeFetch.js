@@ -15,7 +15,7 @@ const initialState = {
     const [loading, setLoading] = useState(false); //initial state is false
     //before useState hook you need to create a class that was stated in React
     const [error, setError] = useState(false); //use if receive error from API
-
+    const [searchTerm, setSearchTerm] = useState('');
     const fetchMovies = async (page, searchTerm = "") => {
         try {
             setError(false);
@@ -48,6 +48,6 @@ const initialState = {
     useEffect( () => {
         fetchMovies(1);
     }, [])
-    return {state, loading, error};
+    return {state, loading, error, setSearchTerm};
 
 };
