@@ -18,3 +18,9 @@ export const isPersistedState = stateName => {
   const sessionState = sessionStorage.getItem(stateName);
   return sessionStorage && JSON.parse(sessionState);
 };
+
+export const IsPersistedState = stateName => {
+  const sessionState = sessionStorage.getItem(stateName);
+  //it will get item from session storage with name we provide 
+  return sessionState && JSON.parse(sessionState); //this will parse it back to json object 
+}

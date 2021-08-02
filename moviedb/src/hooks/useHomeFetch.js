@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import API from "../API"
-
+// Helpers
+import { isPersistedState } from '../helpers';
 const initialState = {
     page: 0,
     results: [],
@@ -47,6 +48,15 @@ export const useHomeFetch = () => {
 
     //inital render and search
     useEffect(() => {
+        if (!searchTerm) {
+            const sessionState = isPersistedState('homeState');
+      
+            if (sessionState) {
+              console.log('Grabbing from sessionStorage');
+              setState(sessionState);
+              return;
+            }
+          }
         //wipeout old state before you make a new search
         setState(initialState);
         fetchMovies(1, searchTerm);
@@ -63,6 +73,12 @@ export const useHomeFetch = () => {
         //we put is loading more in the array because this useEffect is dependent on wether use clicks that 
 
     }, [isLoadingMore, searchTerm, state.page])
+
+
+  // Write to sessionStorage
+  useEffect(() => {
+    if (!searchTerm) sessionStorage.setItem('homeState', JSON.stringify(state));
+  }, [searchTerm, state]);
 
     return { state, loading, error, setSearchTerm, searchTerm, setIsLoadingMore };
 
