@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import API from "../API"
 // Helpers
-import { isPersistedState } from '../helpers';
+// import { IsPersistedState } from '../helpers';
 const initialState = {
     page: 0,
     results: [],
@@ -48,15 +48,15 @@ export const useHomeFetch = () => {
 
     //inital render and search
     useEffect(() => {
-        if (!searchTerm) {
-            const sessionState = isPersistedState('homeState');
+        // if (!searchTerm) {
+        //     const sessionState = isPersistedState('homeState');
       
-            if (sessionState) {
-              console.log('Grabbing from sessionStorage');
-              setState(sessionState);
-              return;
-            }
-          }
+        //     if (sessionState) {
+        //       console.log('Grabbing from sessionStorage');
+        //       setState(sessionState);
+        //       return;
+        //     }
+        //   }
         //wipeout old state before you make a new search
         setState(initialState);
         fetchMovies(1, searchTerm);

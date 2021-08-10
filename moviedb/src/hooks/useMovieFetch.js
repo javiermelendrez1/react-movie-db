@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import API from '../API';
 // Helpers
-import { isPersistedState } from '../helpers';
+//import { isPersistedState } from '../helpers';
 export const useMovieFetch = movieId => {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
@@ -32,21 +32,21 @@ export const useMovieFetch = movieId => {
       }
     };
 
-    const sessionState = isPersistedState(movieId);
-    if(sessionState){
-      setState(sessionState);
-      setLoading(false);
-      return;
-    }
+    // const sessionState = isPersistedState(movieId);
+    // if(sessionState){
+    //   setState(sessionState);
+    //   setLoading(false);
+    //   return;
+    // }
 
     fetchMovie();
   }, [movieId]);
 
 
-//write to session storage 
-useEffect(() => {
-  sessionStorage.setItem(movieId, JSON.stringify(state));
-}, [movieId, state])
+// //write to session storage 
+// useEffect(() => {
+//   sessionStorage.setItem(movieId, JSON.stringify(state));
+// }, [movieId, state])
 
   return { state, loading, error };
 };

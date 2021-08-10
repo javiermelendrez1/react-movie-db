@@ -36,3 +36,9 @@ when mapping you want to use key movie.id
 you can use prop type to validate that the props you are being given are of proper type
 session storage only persist over a session 
 local storage would be better but if the page changes dynamically it is not worth storing 
+
+
+time to deploy application use netlify
+
+in your terminal type npm run build 
+will build the applcation for production
