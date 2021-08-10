@@ -42,3 +42,5 @@ time to deploy application use netlify
 
 in your terminal type npm run build 
 will build the applcation for production
+
+you can change code to use class components instead of functions 
